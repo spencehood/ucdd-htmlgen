@@ -26,7 +26,7 @@ lib.generateTable = function(twoDimensionalArrayOfText) {
 }
 
 lib.generateHyperLink = function(url, text) {
-    return "not yet implemented"
+    return "<a href=" + url +">link text</a>"
 }
 
 lib.generateFormTextField = function(name) {
