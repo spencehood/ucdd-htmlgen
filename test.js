@@ -34,7 +34,7 @@ debug(result)
 
 result = html.generateTable(twoDimensionalArrayOfText)
 debug(result)
-// --> <td>amy</td><td>ben</td><td>cindy</td><td>david</td>
+// --> <table> <tr> <td>amy</td><td>ben</td><td>cindy</td><td>david</td></tr></table>
 
 result = html.generateHyperLink('http://youtube.com', 'YouTube')
 debug(result)
