@@ -33,20 +33,15 @@ lib.generateTableRow = function (arrayOfText) {
     for (var i = 0; i < arrayOfText.length; i++) {
         htmlString += "<td>" + arrayOfText[i] + "</td>" + "\n";
     }
-    htmlString += "</tr>";
+    htmlString += "</tr>" + "\n";
     return htmlString;
 }
 
 lib.generateTable = function(twoDimensionalArrayOfText) {
-    var htmlString = "<tabel>" + "\n" +"<tr>" + "\n";
-    for (var i = 0; i < twoDimensionalArrayOfText[0].length; i++) {
-        htmlString += "<td>" + arrayOfText[0][i] + "</td>" + "\n";
-    }
-    htmlString += "</tr>" + "\n"+"<tr>" + "\n";
-    for (var i = 0; i < twoDimensionalArrayOfText[1].length; i++) {
-        htmlString += "<td>" + arrayOfText[1][i] + "</td>" + "\n";
-    }
-    htmlString += "</tr>" + "\n" +"</tabel>";
+    var htmlString = "<tabel>" + "\n" ;
+    htmlString += lib.generateTableRow(twoDimensionalArrayOfText[0]);
+    htmlString += lib.generateTableRow(twoDimensionalArrayOfText[1]);
+    htmlString += "</tabel>";
     
     return htmlString;  
 }
@@ -77,7 +72,11 @@ lib.generateDropdownList = function(arrayOfValues, arrayOfText) {
 }
 
 lib.generateYoutubeVideoEmbeddableFrame = function(width, height, videoId, allowfullscreen) {
-    return '<iframe width="'+ width +'" height="'+ height +'" src="//www.youtube.com/embed/'+ videoId +'" allowfullscreen></iframe>'
+    if (allowfullscreen === true) {
+        return '<iframe width="'+ width +'" height="'+ height +'" src="//www.youtube.com/embed/'+ videoId +'" allowfullscreen></iframe>';
+    } else {
+        return '<iframe width="'+ width +'" height="'+ height +'" src="//www.youtube.com/embed/'+ videoId +'" ></iframe>';
+    }
 }
 
 module.exports = lib
